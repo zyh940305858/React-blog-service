@@ -14,3 +14,9 @@ npm i
 npm run dev
 open http://localhost:7001/
 ```
+
+## 项目模块
+ - [x] 连接msql
+ - [x] 解决跨域问题
+ - [x] 完成首页列表数据接口
+ - [x] 完成详情页数据接口
