@@ -10,9 +10,8 @@ class MainController extends Controller {
 
   async checkLogin() {
     const { userName, password } = this.ctx.request.body;
-    const sql = `SELECT userName FROM admin_user WHERE userName = ${userName} AND password=${password}`;
-    const res = await this.ctx.mysql.query(sql);
-
+    const sql = `SELECT userName FROM admin_user WHERE userName = "${userName}" AND password="${password}"`;
+    const res = await this.app.mysql.query(sql);
     if (res.length > 0) {
       const openId = new Date().getTime();
       this.ctx.session.openId = { openId };
