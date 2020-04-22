@@ -21,6 +21,11 @@ class MainController extends Controller {
     }
   }
 
+  async getTypeInfo() {
+    const resType = await this.app.mysql.select('type');
+    this.ctx.body = { data: resType };
+  }
+
 }
 
 module.exports = MainController;
