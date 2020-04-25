@@ -38,6 +38,16 @@ class MainController extends Controller {
     };
   }
 
+  async updateArticle() {
+    const tempArticle = this.ctx.request.body;
+    const result = await this.app.mysql.update('article', tempArticle);
+    const updateSuccess = result.affectedRows === 1;
+
+    this.ctx.body = {
+      isSuccess: updateSuccess,
+    };
+  }
+
 }
 
 module.exports = MainController;
